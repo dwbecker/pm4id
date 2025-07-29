@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="author" content="David Becker Jr.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Module 3: Managing Faculty Relationships</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+</head>
+<body>
+  <!-- Bootstrap Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top bg-dark border-bottom border-body" data-bs-theme="dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/index.html">PM4ID</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="/index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/syllabus.html">Syllabus</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Modules
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/modules/module1.1.html">Module 1: Introduction</a></li>
+              <li><a class="dropdown-item" href="/modules/module2.1.html">Module 2: Timeline and Project Scope</a></li>
+              <li><a class="dropdown-item active" aria-current="page" href="/modules/module3.1.html">Module 3: Managing Faculty Relationships</a></li>
+              <li><a class="dropdown-item" href="/modules/final.html">Final Assessment</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/resources.html">Resources</a>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <!-- End Bootstrap Navbar -->
+
+  <!-- Header -->
+  <header class="bg-light text-dark py-5 mb-4">
+    <h1 class="text-center"><strong>Module 3.9: Managing Faculty Relationships</strong></h1>
+  </header>
+  <!-- End Header -->
+
+  <!-- Main Content -->
+  <main>
+    <div class="main-content-container flex-column">
+      <section class="about-section">
+        <h2 class="text-center">Module 3 Assessment</h2>
+        <h3 class="text-center mb-4">Branching Scenario Quiz: Faculty Deadline Conflicts</h3>
+        <div id="scenario-quiz" class="mx-auto" style="max-width: 700px;">
+          <div id="scenario-container" class="card mb-3">
+            <!-- Scenario content will be injected here -->
+          </div>
+          <div class="d-flex justify-content-between">
+            <button id="prev-btn" class="btn btn-secondary" disabled>Previous</button>
+            <button id="next-btn" class="btn btn-primary">Next</button>
+          </div>
+        </div>
+      </section>
+      <script>
+      // filepath: /Users/dbj/Documents/IST EdD/IST EdD/R547/Major Project Assignments/Website/modules/module3.9.html
+      const scenarios = [
+        {
+          title: "Scenario 1: The Overwhelmed Professor",
+          situation: `Dr. Kim emails you: <em>"I'm sorry, but I won't have the Week 3-4 content ready by Friday as planned. I have three conference papers due next week and a grant proposal. Can we push everything back two weeks?"</em>`,
+          options: [
+            { text: `A) Reply: "No problem! I'll adjust the entire timeline by two weeks."`, feedback: `Pushing everything back might impact launch dates. Explore alternatives first.`, correct: false },
+            { text: `B) Suggest redistributing her workload and offer alternative solutions`, feedback: `Excellent! You're problem-solving collaboratively. You might suggest working on different modules first, breaking content into smaller chunks, or providing templates to speed development.`, correct: true },
+            { text: `C) Remind her of the original agreement and insist on the deadline`, feedback: `This approach damages relationships and doesn't solve the underlying problem.`, correct: false },
+            { text: `D) Escalate immediately to your supervisor`, feedback: `Escalation should be a last resort. Try collaborative solutions first.`, correct: false }
+          ]
+        },
+        {
+          title: "Scenario 2: The Perfectionist",
+          situation: `Dr. Thompson has spent three weeks revising the same module content repeatedly. She says: <em>"I just need a few more days to perfect this. The content isn't quite right yet."</em>`,
+          options: [
+            { text: `A) Allow unlimited time for perfection`, feedback: `Perfectionism can paralyze projects. Help faculty understand 'good enough to test' concepts.`, correct: false },
+            { text: `B) Set a firm deadline and explain the iterative improvement process`, feedback: `Perfect! Explain that agile approaches value getting something good enough to test, then improving based on feedback. Set a realistic but firm deadline.`, correct: true },
+            { text: `C) Take over content creation yourself`, feedback: `Faculty subject matter expertise is crucial. Don't take over their role.`, correct: false },
+            { text: `D) Skip this module and move to the next one`, feedback: `Skipping content creates bigger problems. Address the perfectionism issue directly.`, correct: false }
+          ]
+        },
+        {
+          title: "Scenario 3: The Scope Creeper",
+          situation: `Two weeks before launch, Dr. Rivera says: <em>"I just realized we should add virtual reality simulations to three modules. My colleague at another university did this and it was amazing!"</em>`,
+          options: [
+            { text: `A) Agree and start working on VR integration immediately`, feedback: `Major additions this late would derail the launch. Protect the project scope.`, correct: false },
+            { text: `B) Explain scope boundaries and suggest this for a future course revision`, feedback: `Excellent scope management! Acknowledge the good idea while maintaining project boundaries. Document it for Phase 2 or future improvements.`, correct: true },
+            { text: `C) Refuse without explanation`, feedback: `Always explain your reasoning to maintain good relationships.`, correct: false },
+            { text: `D) Tell her to ask her department head for approval`, feedback: `You should handle scope discussions directly with faculty first.`, correct: false }
+          ]
+        },
+        {
+          title: "Scenario 4: The Technical Challenger",
+          situation: `Dr. Patel emails: <em>"The LMS quiz tool is too limiting. Can we use this external assessment platform I found? It has much better features."</em>`,
+          options: [
+            { text: `A) Research and implement the new platform immediately`, feedback: `Don't implement new tools without proper evaluation of impact and constraints.`, correct: false },
+            { text: `B) Evaluate the request against technical constraints and project scope`, feedback: `Great project management thinking! Evaluate new requests systematically: Does it align with learning objectives? What are the technical/security implications? Timeline impact?`, correct: true },
+            { text: `C) Reject it because it wasn't in the original plan`, feedback: `Good ideas deserve consideration, but within a structured evaluation process.`, correct: false },
+            { text: `D) Ask IT department to make the decision`, feedback: `While IT input is valuable, you should first evaluate the educational and project impact.`, correct: false }
+          ]
+        }
+      ];
+
+      let current = 0;
+      let answered = Array(scenarios.length).fill(false);
+
+      function renderScenario(idx) {
+        const s = scenarios[idx];
+        let html = `<div class="card-header"><strong>${s.title}</strong></div>
+          <div class="card-body">
+            <p>${s.situation}</p>
+            <div id="options" class="list-group">`;
+        s.options.forEach((opt, i) => {
+          html += `<button class="list-group-item list-group-item-action mb-2" data-idx="${i}" ${answered[idx] ? 'disabled' : ''}>${opt.text}</button>`;
+        });
+        html += `</div>
+            <div id="feedback" class="mt-3"></div>
+          </div>`;
+        document.getElementById('scenario-container').innerHTML = html;
+        document.getElementById('prev-btn').disabled = idx === 0;
+        document.getElementById('next-btn').disabled = !answered[idx] || idx === scenarios.length - 1;
+
+        if (!answered[idx]) {
+          document.querySelectorAll('#options button').forEach(btn => {
+            btn.addEventListener('click', function() {
+              const optIdx = this.getAttribute('data-idx');
+              const opt = s.options[optIdx];
+              const feedbackDiv = document.getElementById('feedback');
+              feedbackDiv.innerHTML = `<div class="alert alert-${opt.correct ? 'success' : 'danger'}">${opt.feedback}</div>`;
+              if (opt.correct) {
+                answered[idx] = true;
+                document.querySelectorAll('#options button').forEach(b => b.disabled = true);
+                document.getElementById('next-btn').disabled = idx === scenarios.length - 1 ? true : false;
+              }
+            });
+          });
+        }
+      }
+
+      document.getElementById('prev-btn').addEventListener('click', () => {
+        if (current > 0) {
+          current--;
+          renderScenario(current);
+        }
+      });
+      document.getElementById('next-btn').addEventListener('click', () => {
+        if (current < scenarios.length - 1) {
+          current++;
+          renderScenario(current);
+        }
+      });
+
+      renderScenario(current);
+      </script>
+    </div>
+  </main>
+  <!-- End Main Content -->
+
+   <nav aria-label="Page navigation example">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="module3.8.html">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="module3.1.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="module3.2.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="module3.3.html">3</a></li>
+            <li class="page-item"><a class="page-link" href="module3.4.html">4</a></li>
+            <li class="page-item"><a class="page-link" href="module3.5.html">5</a></li>
+            <li class="page-item"><a class="page-link" href="module3.6.html">6</a></li>
+            <li class="page-item"><a class="page-link" href="module3.7.html">7</a></li>
+            <li class="page-item"><a class="page-link" href="module3.8.html">8</a></li>
+            <li class="page-item active"><a class="page-link" href="module3.9.html">9</a></li>
+            <li class="page-item"><a class="page-link" href="final.html">Next</a></li>
+        </ul>
+        </nav>
+        
+  <footer class="bg-dark text-white text-center py-3">
+    <p>&copy; 2025 David Becker Jr.</p>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>
